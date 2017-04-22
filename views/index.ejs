@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework 8 - TODO list</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="todo" id="todo-list">
+    <% for(var i = 0; i < items.length; i++) {%>
+      <div class='item' data-index="<%=items[i]._id.toString()%>">
+        <input type='checkbox'
+        data-name="<%=items[i].name%>" data-done="<%=items[i].done%>"
+        <% if (items[i].done) {%> checked <% } %>>
+        <p><%=items[i].name%></p>
+        <p class="delete-button" data-name=<%=items[i].name%>>&#10006;</p>
+      </div>
+    <% } %>
+  </div>
+
+  <div class="todo">
+    <form action="/todo" class="item" id="new-todo" method="POST">
+      <input type="text" class="todo-text" placeholder="Add a new item" name="name">
+    </form>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
